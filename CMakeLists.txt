@@ -1,5 +1,15 @@
 cmake_minimum_required(VERSION 2.8)
 
+project(zeroRemote)
+
+# Force the compiler to use ARM cross-compilers
+set(CMAKE_C_COMPILER "arm-linux-gnueabihf-gcc")
+set(CMAKE_CXX_COMPILER "arm-linux-gnueabihf-g++")
+
+# Add search directories for libraries and headings
+include_directories(/usr/lib/aarch64-linux-gnu)
+link_directories(/usr/lib/aarch64-linux-gnu)
+
 if(NOT CMAKE_BUILD_TYPE)
 	set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Choose the type of build, options are: Debug Release RelWithDebInfo MinSizeRel." FORCE)
 endif()
@@ -26,7 +36,7 @@ set(DEFAULT_TO_ARMV7A OFF)
 set(DEFAULT_TO_ARMV8A OFF)
 
 # http://ozzmaker.com/check-raspberry-software-hardware-version-command-line/
-if (BOARD_REVISION MATCHES "(0002)|(0003)|(0004)|(0005)|(0006)|(0007)|(0008)|(0009)" OR BOARD_REVISION MATCHES "(000d)|(000e)|(000f)|(0010)|(0011)|(0012)" OR BOARD_REVISION MATCHES "(900092)|(900093)|(9000c1)")
+if (BOARD_REVISION MATCHES "(0002)|(0003)|(0004)|(0005)|(0006)|(0007)|(0008)|(0009)" OR BOARD_REVISION MATCHES "(000d)|(000e)|(000f)|(0010)|(0011)|(0012)" OR BOARD_REVISION MATCHES "(900092)|(900093)|(9000c1)|(902120)")
 	message(STATUS "Detected this Pi to be one of: Pi A, A+, B rev. 1, B rev. 2, B+, CM1, Zero or Zero W, with single hardware core and ARMv6Z instruction set CPU.")
 	set(DEFAULT_TO_SINGLE_CORE_BOARD ON)
 	set(DEFAULT_TO_ARMV6Z ON)

@@ -1,0 +1,3 @@
+/home/drone/fbcp-ST7796/build/CMakeFiles/fbcp-ili9341.dir
+/home/drone/fbcp-ST7796/build/CMakeFiles/edit_cache.dir
+/home/drone/fbcp-ST7796/build/CMakeFiles/rebuild_cache.dir
