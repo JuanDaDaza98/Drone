@@ -8,7 +8,7 @@ Configuracion de compatibilidad Raspberry Pi zero 2W
 
 COMANDOS PARA ACTIVACION DE CAMARA
 
-ffmpeg -f v4l2 -i /dev/video0 -vf "scale=800:480,format=bgra" -f fbdev -pix_fmt bgra /dev/fb0
+ffmpeg -f v4l2 -i /dev/video0 -framerate 30 -vf "scale=800:480,format=bgra" -f fbdev -pix_fmt bgra -an -sn -vsync 0 /dev/fb0
 
 
 mplayer tv:// -tv driver=v4l2:device=/dev/video0 -fps 60 -vo fbdev:/dev/fb0 -vf scale=800:480,format=bgra
